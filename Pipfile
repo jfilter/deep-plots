@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "==0.23.3"
+altair = "==2.1.0"
+pytest = "==3.6.3"
+selenium = "==3.13.0"
+
+[dev-packages]
+autopep8 = "*"
+pylint = "*"
+
+[requires]
+python_version = "3.6"
