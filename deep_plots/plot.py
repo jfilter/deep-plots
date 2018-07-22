@@ -23,11 +23,15 @@ def plot_accuracy(data, output_path='accuracy.png', width=10, height=8):
 
     plot = ggplot(data, aes('epoch', 'acc', color='factor(data)')) + \
         geom_line(size=1, show_legend=False) + \
-        geom_vline(aes(xintercept='epoch', color='data'), data=max_val_data, alpha=0.5, show_legend=False) + \
+        geom_vline(aes(xintercept='epoch', color='data'),
+                   data=max_val_data, alpha=0.5, show_legend=False) + \
         geom_label(aes('epoch', 'acc'), data=max_val_data,
-                   label=max_val_label, nudge_y=-0.02, va='top', label_size=0, show_legend=False) + \
-        geom_text(aes('epoch', 'acc', label='data'), data=max_epoch_data, nudge_x=2, ha='center', show_legend=False) + \
-        geom_point(aes('epoch', 'acc'), data=max_val_data, show_legend=False) + \
+                   label=max_val_label, nudge_y=-0.02, va='top', label_size=0,
+                   show_legend=False) + \
+        geom_text(aes('epoch', 'acc', label='data'), data=max_epoch_data,
+                  nudge_x=2, ha='center', show_legend=False) + \
+        geom_point(aes('epoch', 'acc'), data=max_val_data,
+                   show_legend=False) + \
         labs(y='Accuracy', x='Epochs') + \
         theme_bw(base_family='Arial', base_size=15) + \
         scale_color_manual(['#ef8a62', '#67a9cf', "#f7f7f7"])
@@ -50,13 +54,24 @@ def plot_loss(data, output_path='loss.png', width=10, height=8):
 
     plot = ggplot(data, aes('epoch', 'loss', color='factor(data)')) + \
         geom_line(size=1, show_legend=False) + \
-        geom_vline(aes(xintercept='epoch', color='data'), data=max_val_data, alpha=0.5, show_legend=False) + \
+        geom_vline(aes(xintercept='epoch', color='data'), data=max_val_data,
+                   alpha=0.5, show_legend=False) + \
         geom_label(aes('epoch', 'loss'), data=max_val_data,
-                   label=max_val_label, nudge_y=0.02, va='bottom', label_size=0, show_legend=False) + \
-        geom_text(aes('epoch', 'loss', label='data'), data=max_epoch_data, nudge_x=2, ha='center', show_legend=False) + \
-        geom_point(aes('epoch', 'loss'), data=max_val_data, show_legend=False) + \
+                   label=max_val_label, nudge_y=0.02, va='bottom', label_size=0,
+                   show_legend=False) + \
+        geom_text(aes('epoch', 'loss', label='data'), data=max_epoch_data,
+                  nudge_x=2, ha='center', show_legend=False) + \
+        geom_point(aes('epoch', 'loss'), data=max_val_data,
+                   show_legend=False) + \
         labs(y='Loss', x='Epochs') + \
         theme_bw(base_family='Arial', base_size=15) + \
         scale_color_manual(['#ef8a62', '#67a9cf', "#f7f7f7"])
 
     plot.save(output_path, width=width, height=height)
+
+
+def plot(data):
+    if not isinstance(data, pd.DataFrame):
+        data = pd.DataFrame(data)
+    plot_accuracy(data)
+    plot_loss(data)
