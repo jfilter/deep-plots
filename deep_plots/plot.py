@@ -4,10 +4,6 @@ import matplotlib
 import pandas as pd
 from plotnine import *
 
-if os.environ.get('DISPLAY', '') == '':
-    print('No display found. Using non-interactive Agg backend')
-    matplotlib.use('Agg')
-
 
 def get_epoch_max_val_acc(data):
     """Gets the epoch with the highest validation accuracy."""
@@ -72,6 +68,10 @@ def plot_loss(data, output_path='loss.png', width=10, height=8):
 
 
 def plot(data):
+    if os.environ.get('DISPLAY', '') == '':
+        print('No display found. Using non-interactive Agg backend')
+        matplotlib.use('agg')
+
     if not isinstance(data, pd.DataFrame):
         data = pd.DataFrame(data)
     plot_accuracy(data)
