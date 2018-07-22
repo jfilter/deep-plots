@@ -6,8 +6,6 @@ matrix:
         - python: 2.7
         - python: 3.5
         - python: 3.6
-        - python: 3.6
-        env: TEST_MODE=PEP8
 install:
     - pip install pytest pytest-pep8 pytest-cov
 
