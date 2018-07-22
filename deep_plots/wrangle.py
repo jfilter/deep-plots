@@ -1,6 +1,6 @@
 import pandas as pd
 
-from .plot import plot_accuracy, plot_loss
+from .plot import plot
 
 
 def _from_keras_log_format(data, outputpath):
@@ -25,10 +25,3 @@ def from_keras_log(csv_path, output_path):
 
 def from_keras_history(history, output_path):
     pass
-
-
-def plot(data):
-    if not isinstance(data, pd.DataFrame):
-        data = pd.DataFrame(data)
-    plot_accuracy(data)
-    plot_loss(data)
