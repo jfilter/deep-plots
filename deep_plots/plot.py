@@ -7,7 +7,7 @@ if os.environ.get('DISPLAY', '') == '':
     print('No display found. Using non-interactive Agg backend')
     matplotlib.use('agg')
 
-from plotnine import *
+from plotnine import *  # nopep8
 
 
 def get_epoch_max_val_acc(data):
