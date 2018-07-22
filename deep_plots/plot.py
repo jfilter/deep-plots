@@ -4,6 +4,7 @@ import matplotlib
 import pandas as pd
 
 if os.environ.get('DISPLAY', '') == '':
+    # this has to be done before doing anything with mathplotlib
     print('No display found. Using non-interactive Agg backend')
     matplotlib.use('agg')
 
