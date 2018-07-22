@@ -14,9 +14,7 @@ def _from_keras_log_format(data, outputpath):
     data_training['data'] = 'training'
 
     result = pd.concat([data_training, data_val], sort=False)
-
-    plot_accuracy(result)
-    plot_loss(result)
+    plot(result)
 
 
 def from_keras_log(csv_path, output_path):
@@ -33,3 +31,4 @@ def plot(data):
     if not isinstance(data, pd.DataFrame):
         data = pd.DataFrame(data)
     plot_accuracy(data)
+    plot_loss(data)

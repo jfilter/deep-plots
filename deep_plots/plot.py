@@ -36,7 +36,7 @@ def plot_accuracy(data, output_path='accuracy.png', width=10, height=8):
 
 
 def get_epoch_min_val_loss(data):
-    """Gets the epoch with the highest validation loss."""
+    """Gets the epoch with the lowest validation loss."""
     df_val = data[data['data'] == 'validation']
     return df_val[df_val['loss'] == df_val['loss'].min()]
 
