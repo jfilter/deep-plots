@@ -1,6 +1,7 @@
 import os
 
 import matplotlib
+import pandas as pd
 from plotnine import *
 
 if os.environ.get('DISPLAY', '') == '':
