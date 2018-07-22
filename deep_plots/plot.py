@@ -58,8 +58,8 @@ def plot_loss(data, output_path='loss.png', width=10, height=8):
         geom_vline(aes(xintercept='epoch', color='data'), data=max_val_data,
                    alpha=0.5, show_legend=False) + \
         geom_label(aes('epoch', 'loss'), data=max_val_data,
-                   label=max_val_label, nudge_y=0.02, va='bottom', label_size=0,
-                   show_legend=False) + \
+                   label=max_val_label, nudge_y=0.02, va='bottom',
+                   label_size=0, show_legend=False) + \
         geom_text(aes('epoch', 'loss', label='data'), data=max_epoch_data,
                   nudge_x=2, ha='center', show_legend=False) + \
         geom_point(aes('epoch', 'loss'), data=max_val_data,
