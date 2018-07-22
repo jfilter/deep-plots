@@ -2,6 +2,11 @@ import os
 
 import matplotlib
 import pandas as pd
+
+if os.environ.get('DISPLAY', '') == '':
+    print('No display found. Using non-interactive Agg backend')
+    matplotlib.use('agg')
+
 from plotnine import *
 
 
@@ -68,10 +73,6 @@ def plot_loss(data, output_path='loss.png', width=10, height=8):
 
 
 def plot(data):
-    if os.environ.get('DISPLAY', '') == '':
-        print('No display found. Using non-interactive Agg backend')
-        matplotlib.use('agg')
-
     if not isinstance(data, pd.DataFrame):
         data = pd.DataFrame(data)
     plot_accuracy(data)
