@@ -5,9 +5,8 @@ name = "pypi"
 
 [packages]
 pandas = "==0.23.3"
-altair = "==2.1.0"
 pytest = "==3.6.3"
-selenium = "==3.13.0"
+plotnine = "==0.3.0"
 
 [dev-packages]
 autopep8 = "*"

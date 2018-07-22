@@ -1,6 +1,6 @@
 import pandas as pd
 
-from .plot import plot_accuracy
+from .plot import plot_accuracy, plot_loss
 
 
 def _from_keras_log_format(data, outputpath):
@@ -16,6 +16,7 @@ def _from_keras_log_format(data, outputpath):
     result = pd.concat([data_training, data_val], sort=False)
 
     plot_accuracy(result)
+    plot_loss(result)
 
 
 def from_keras_log(csv_path, output_path):

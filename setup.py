@@ -8,4 +8,5 @@ setup(name='deep_plots',
       author_email='hi@jfilter.de',
       license='MIT',
       packages=['deep_plots'],
+      install_requires=['plotnine==0.3.0', 'pandas==0.23.3'],
       zip_safe=False)
