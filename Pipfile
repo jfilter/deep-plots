@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 pandas = "==0.23.3"
-pytest = "==3.6.3"
 plotnine = "==0.3.0"
 
 [dev-packages]
 autopep8 = "*"
 pylint = "*"
+pytest = "==3.6.3"
 
 [requires]
 python_version = "3.6"
