@@ -5,21 +5,30 @@ import pandas as pd
 
 if os.environ.get('DISPLAY', '') == '':
     # this has to be done before doing anything with mathplotlib
-    print('No display found. Using non-interactive Agg backend')
+    print('deep_plots: No display found. Using non-interactive Agg backend.')
     matplotlib.use('agg')
 
 from plotnine import *  # nopep8
 
 
 def get_epoch_max_val_acc(data):
-    """Gets the epoch with the highest validation accuracy."""
+    """Gets the epoch with the highest validation accuracy.
+        Args:
+            data: Panda dataframe in *the* format.
+        Returns:
+            Row with the maximum validatin accuracy.
+    """
     df_val = data[data['data'] == 'validation']
     return df_val[df_val['acc'] == df_val['acc'].max()]
 
 
-def plot_accuracy(data, output_dir='.', output_filename='accuracy.png',
+def plot_accuracy(data, output_dir_path='.', output_filename='accuracy.png',
                   width=10, height=8):
-    output_path = os.path.join(output_dir, output_filename)
+    """Plot accuracy.
+        Args:
+            data: Panda dataframe in *the* format.
+    """
+    output_path = os.path.join(output_dir_path, output_filename)
 
     max_val_data = get_epoch_max_val_acc(data)
     max_val_label = round(max_val_data['acc'].values[0], 4)
@@ -46,14 +55,23 @@ def plot_accuracy(data, output_dir='.', output_filename='accuracy.png',
 
 
 def get_epoch_min_val_loss(data):
-    """Gets the epoch with the lowest validation loss."""
+    """Gets the epoch with the lowest validation loss.
+        Args:
+            data: Panda dataframe in *the* format.
+        Returns:
+            Row with the minimum validation loss.
+    """
     df_val = data[data['data'] == 'validation']
     return df_val[df_val['loss'] == df_val['loss'].min()]
 
 
-def plot_loss(data, output_dir='.', output_filename='loss.png',
+def plot_loss(data, output_dir_path='.', output_filename='loss.png',
               width=10, height=8):
-    output_path = os.path.join(output_dir, output_filename)
+    """Plot loss.
+        Args:
+            data: Panda dataframe in *the* format.
+    """
+    output_path = os.path.join(output_dir_path, output_filename)
 
     max_val_data = get_epoch_min_val_loss(data)
     max_val_label = round(max_val_data['loss'].values[0], 4)
@@ -79,8 +97,13 @@ def plot_loss(data, output_dir='.', output_filename='loss.png',
     plot.save(output_path, width=width, height=height)
 
 
-def plot(data, output_dir='.'):
+def plot(data, output_dir_path='.', width=10, height=8):
+    """Create two plots: 1) loss 2) accuracy.
+        Args:
+            data: Panda dataframe in *the* format.
+    """
     if not isinstance(data, pd.DataFrame):
         data = pd.DataFrame(data)
-    plot_accuracy(data, output_dir=output_dir)
-    plot_loss(data, output_dir)
+    plot_accuracy(data, output_dir_path=output_dir_path,
+                  width=width, height=height)
+    plot_loss(data, output_dir_path, width=width, height=height)
