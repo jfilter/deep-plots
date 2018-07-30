@@ -11,6 +11,7 @@ plotnine = "==0.3.0"
 autopep8 = "*"
 pylint = "*"
 pytest = "==3.6.3"
+twine = "*"
 
 [requires]
 python_version = "3.6"

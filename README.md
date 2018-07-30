@@ -18,6 +18,14 @@ For creating the graphics, [plotnine](https://github.com/has2k1/plotnine) is use
 pip install deep_plots
 ```
 
+Unfortunately, you may need to:
+
+```bash
+pip install numpy
+```
+
+before because a [depedency implicitly assumes numpy is installed](https://github.com/statsmodels/statsmodels/issues/3207).
+
 ## Usage
 
 ```python
