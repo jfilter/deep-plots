@@ -17,7 +17,8 @@ def get_epoch_max_val_acc(data):
     return df_val[df_val['acc'] == df_val['acc'].max()]
 
 
-def plot_accuracy(data, output_dir='.', output_filename='accuracy.png', width=10, height=8):
+def plot_accuracy(data, output_dir='.', output_filename='accuracy.png',
+                  width=10, height=8):
     output_path = os.path.join(output_dir, output_filename)
 
     max_val_data = get_epoch_max_val_acc(data)
@@ -50,7 +51,8 @@ def get_epoch_min_val_loss(data):
     return df_val[df_val['loss'] == df_val['loss'].min()]
 
 
-def plot_loss(data, output_dir='.', output_filename='loss.png', width=10, height=8):
+def plot_loss(data, output_dir='.', output_filename='loss.png',
+              width=10, height=8):
     output_path = os.path.join(output_dir, output_filename)
 
     max_val_data = get_epoch_min_val_loss(data)
