@@ -8,7 +8,8 @@ def _from_keras_log_format(data, **kwargs):
 
     Args:
         data: Panda dataframe in the format of the Keras CSV log.
-        output_dir_path: The path to the directory where the resultings plots should end up.
+        output_dir_path: The path to the directory where the resultings plots
+            should end up.
     """
     data_val = pd.DataFrame(data[['epoch']])
 
@@ -28,7 +29,8 @@ def from_keras_log(csv_path, output_dir_path, **kwargs):
 
     Args:
         csv_path: The path to the CSV log with the actual data.
-        output_dir_path: The path to the directory where the resultings plots should end up.
+        output_dir_path: The path to the directory where the resultings plots
+            should end up.
     """
     # automatically get seperator by using Python's CSV parser
     data = pd.read_csv(csv_path, sep=None, engine='python')
