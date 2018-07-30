@@ -1,4 +1,4 @@
-# Deep Plots [![Build Status](https://travis-ci.com/jfilter/deep-plots.svg?branch=master)](https://travis-ci.com/jfilter/deep-plots)
+# Deep Plots [![Build Status](https://travis-ci.com/jfilter/deep-plots.svg?branch=master)](https://travis-ci.com/jfilter/deep-plots) [![PyPI](https://img.shields.io/pypi/v/deep-plots.svg)](https://pypi.org/project/deep-plots/) [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/deep-plots.svg)](https://pypi.org/project/deep-plots/)
 
 Visualize Your Deep Learning Training in Static Graphics.
 
